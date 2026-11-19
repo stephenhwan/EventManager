@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.core.content.ContextCompat
 
 class EventAdapter(
     private var items: List<Event>,
@@ -34,15 +35,12 @@ class EventAdapter(
         holder.tvOrganiser.text = "👤  ${e.organiser}"
         holder.tvType.text = e.type
         holder.tvStatus.text = e.status
-        holder.tvStatus.setTextColor(
-            Color.parseColor(
-                when (e.status) {
-                    "Upcoming" -> "#1976D2"
-                    "Completed" -> "#388E3C"
-                    else -> "#D32F2F"
-                }
-            )
-        )
+        val colorRes = when (e.status) {
+            "Upcoming" -> R.color.status_upcoming
+            "Completed" -> R.color.status_completed
+            else -> R.color.status_cancelled
+        }
+        holder.tvStatus.setTextColor(ContextCompat.getColor(holder.itemView.context, colorRes))
         holder.itemView.setOnClickListener { onClick(e) }
     }
 

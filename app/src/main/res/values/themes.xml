@@ -1,8 +1,22 @@
+<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Base.Theme.EventManager" parent="Theme.Material3.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your light theme here. &ndash;&gt;-->
+<!--        &lt;!&ndash; <item name="colorPrimary">@color/my_light_primary</item> &ndash;&gt;-->
+<!--    </style>-->
+
+<!--    <style name="Theme.EventManager" parent="Base.Theme.EventManager" />-->
+<!--</resources>-->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.EventManager" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorOnPrimary">@color/theme_on_primary</item>
+        <item name="colorPrimaryContainer">@color/theme_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/theme_on_primary_container</item>
+        <item name="colorSecondary">@color/theme_secondary</item>
+        <item name="colorOnSecondary">@color/theme_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/theme_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/theme_on_secondary_container</item>
     </style>
 
     <style name="Theme.EventManager" parent="Base.Theme.EventManager" />

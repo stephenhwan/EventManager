@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--(light) -->
+    <color name="theme_primary">#0061A4</color>
+    <color name="theme_on_primary">#FFFFFF</color>
+    <color name="theme_primary_container">#D1E4FF</color>
+    <color name="theme_on_primary_container">#001D36</color>
+    <color name="theme_secondary">#535F70</color>
+    <color name="theme_on_secondary">#FFFFFF</color>
+    <color name="theme_secondary_container">#D7E3F8</color>
+    <color name="theme_on_secondary_container">#101C2B</color>
+
+    <!--  status light -->
+    <color name="status_upcoming">#1976D2</color>
+    <color name="status_completed">#388E3C</color>
+    <color name="status_cancelled">#D32F2F</color>
 </resources>

@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">EventManager</string>
+
+    <string name="title_main">Event Manager</string>
+    <string name="title_add_event">Add event</string>
+    <string name="title_edit_event">Edit event</string>
+
+    <string name="add_event">Add event</string>
+    <string name="empty_events">No events yet.\nTap “Add event” to create one.</string>
+
+    <string name="hint_event_name">Event name</string>
+    <string name="hint_event_date">Event date (DD/MM/YYYY)</string>
+    <string name="hint_event_location">Event location</string>
+    <string name="hint_event_organiser">Event organiser</string>
+    <string name="label_event_type">Event type</string>
+    <string name="label_event_status">Event status</string>
+    <string name="section_optional">Optional details</string>
+    <string name="hint_description">Event description (optional)</string>
+    <string name="hint_contact_email">Contact email (optional)</string>
+    <string name="hint_contact_phone">Contact phone (optional)</string>
+
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="edit">Edit</string>
+
+    <string name="error_name_required">Please enter the event name</string>
+    <string name="error_date_required">Please enter the event date</string>
+    <string name="error_date_invalid">Invalid date. Use the format DD/MM/YYYY</string>
+    <string name="error_location_required">Please enter the event location</string>
+    <string name="error_organiser_required">Please enter the event organiser</string>
+    <string name="error_email_invalid">Invalid email address</string>
+    <string name="error_phone_invalid">Invalid phone number (8–15 digits, may start with +)</string>
+    <string name="error_event_duplicate">An event with this name and date already exists</string>
+
+    <string name="confirm_title">Confirm event details</string>
+    <string name="confirm_message">Name: %1$s\nDate: %2$s\nLocation: %3$s\nOrganiser: %4$s\nType: %5$s\nStatus: %6$s\n\nDescription: %7$s\nContact email: %8$s\nContact phone: %9$s</string>
+    <string name="value_not_provided">(not provided)</string>
+
+    <string name="delete_title">Delete event</string>
+    <string name="delete_message">Are you sure you want to delete this event?</string>
+    <string name="toast_event_added">Event added</string>
+    <string name="toast_event_updated">Event updated</string>
+    <string name="toast_event_deleted">Event deleted</string>
+
+    <string name="upload_to_cloud">Upload to cloud</string>
+    <string name="no_events_to_upload">No events to upload</string>
+    <string name="no_network">No internet connection. Please check your network and try again</string>
+    <string name="uploading">Uploading…</string>
+    <string name="upload_success">Uploaded %1$d event(s) to the cloud</string>
+    <string name="upload_failed">Upload failed: %1$s</string>
 </resources>

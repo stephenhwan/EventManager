@@ -1,5 +1,7 @@
 package com.example.eventmanager
 
+import android.R
+
 data class Event(
     val id: Long = 0,
     val name: String,
@@ -7,5 +9,8 @@ data class Event(
     val location: String,
     val organiser: String,
     val type: String,
-    val status: String
+    val status: String,
+    val description: String = "",
+    val contactEmail: String = "",
+    val contactPhone: String = ""
 )
