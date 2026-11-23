@@ -26,6 +26,17 @@
         <activity android:name=".AddEditEventActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".AddEditSessionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".EventDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdvancedSearchActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

@@ -39,7 +39,7 @@
     <string name="value_not_provided">(not provided)</string>
 
     <string name="delete_title">Delete event</string>
-    <string name="delete_message">Are you sure you want to delete this event?</string>
+    <string name="delete_message">Are you sure you want to delete this event? All of its sessions will be deleted as well.</string>
     <string name="toast_event_added">Event added</string>
     <string name="toast_event_updated">Event updated</string>
     <string name="toast_event_deleted">Event deleted</string>
@@ -48,6 +48,62 @@
     <string name="no_events_to_upload">No events to upload</string>
     <string name="no_network">No internet connection. Please check your network and try again</string>
     <string name="uploading">Uploading…</string>
-    <string name="upload_success">Uploaded %1$d event(s) to the cloud</string>
+    <string name="upload_success">Uploaded %1$d event(s) and %2$d session(s) to the cloud</string>
     <string name="upload_failed">Upload failed: %1$s</string>
+
+    <!-- ===== Event detail ===== -->
+    <string name="title_event_detail">Event details</string>
+    <string name="edit_event">Edit / delete event</string>
+    <string name="detail_date">📅  Date: %1$s</string>
+    <string name="detail_location">📍  Location: %1$s</string>
+    <string name="detail_organiser">👤  Organiser: %1$s</string>
+    <string name="detail_type_status">🏷  Type: %1$s  |  Status: %2$s</string>
+    <string name="detail_description">Description: %1$s</string>
+    <string name="detail_email">Contact email: %1$s</string>
+    <string name="detail_phone">Contact phone: %1$s</string>
+    <string name="total_sessions">Total sessions: %1$d</string>
+    <string name="empty_sessions">No sessions yet. Tap “Add session” to create one.</string>
+
+    <!-- ===== Session ===== -->
+    <string name="hint_speaker">Speaker (optional)</string>
+    <string name="hint_room">Room (optional)</string>
+    <string name="no_sessions">No sessions yet.\nTap “Add session” to create one.</string>
+    <string name="sessions_header">Sessions (%1$d)</string>
+    <string name="coming_soon">Coming in the next step</string>
+    <string name="add_session">Add session</string>
+    <string name="title_add_session">Add session</string>
+    <string name="title_edit_session">Edit session</string>
+    <string name="session_id_auto">Session ID: (auto-generated)</string>
+    <string name="session_id_value">Session ID: #%1$d</string>
+    <string name="hint_session_name">Session name</string>
+    <string name="hint_session_time">Time (HH:mm)</string>
+    <string name="label_session_type">Session type</string>
+    <string name="hint_session_speaker">Speaker (optional)</string>
+    <string name="hint_session_room">Room (optional)</string>
+    <string name="hint_session_description">Session description (optional)</string>
+    <string name="error_session_name_required">Please enter the session name</string>
+    <string name="error_session_time_required">Please choose the session time</string>
+    <string name="error_session_time_invalid">Invalid time. Use the format HH:mm (00:00 – 23:59)</string>
+    <string name="session_confirm_title">Confirm session details</string>
+    <string name="session_confirm_message">Name: %1$s\nTime: %2$s\nType: %3$s\n\nSpeaker: %4$s\nRoom: %5$s\nDescription: %6$s</string>
+    <string name="delete_session_title">Delete session</string>
+    <string name="delete_session_message">Are you sure you want to delete this session?</string>
+    <string name="toast_session_added">Session added</string>
+    <string name="toast_session_updated">Session updated</string>
+    <string name="toast_session_deleted">Session deleted</string>
+
+
+    --search--
+    <string name="sessions_count">🗂  %1$d session(s)</string>
+    <string name="search">Search</string>
+    <string name="advanced_search">Advanced search</string>
+    <string name="search_events_hint">Search by name or description</string>
+    <string name="search_sessions_hint">Search sessions by name or description</string>
+    <string name="no_search_results">No matching results</string>
+    <string name="sessions_found">Sessions: %1$d of %2$d match</string>
+    <string name="title_advanced_search">Advanced search</string>
+    <string name="hint_search_organiser">Organiser</string>
+    <string name="clear">Clear</string>
+    <string name="error_enter_criteria">Enter an organiser or pick a date</string>
+    <string name="search_results_count">%1$d event(s) found</string>
 </resources>

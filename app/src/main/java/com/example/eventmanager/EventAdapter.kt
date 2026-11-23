@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 
 class EventAdapter(
     private var items: List<Event>,
+    private var sessionCounts: Map<Long, Int> = emptyMap(),   // eventId -> số session
     private val onClick: (Event) -> Unit
 ) : RecyclerView.Adapter<EventAdapter.VH>() {
 
@@ -18,6 +19,7 @@ class EventAdapter(
         val tvDate: TextView = v.findViewById(R.id.tvEventDate)
         val tvLocation: TextView = v.findViewById(R.id.tvEventLocation)
         val tvOrganiser: TextView = v.findViewById(R.id.tvEventOrganiser)
+        val tvSessions: TextView = v.findViewById(R.id.tvEventSessions)
         val tvType: TextView = v.findViewById(R.id.tvEventType)
         val tvStatus: TextView = v.findViewById(R.id.tvEventStatus)
     }
@@ -33,6 +35,9 @@ class EventAdapter(
         holder.tvDate.text = "📅  ${e.date}"
         holder.tvLocation.text = "📍  ${e.location}"
         holder.tvOrganiser.text = "👤  ${e.organiser}"
+        holder.tvSessions.text = holder.itemView.context.getString(
+            R.string.sessions_count, sessionCounts[e.id] ?: 0
+        )
         holder.tvType.text = e.type
         holder.tvStatus.text = e.status
         val colorRes = when (e.status) {
@@ -44,8 +49,9 @@ class EventAdapter(
         holder.itemView.setOnClickListener { onClick(e) }
     }
 
-    fun submit(list: List<Event>) {
+    fun submit(list: List<Event>, counts: Map<Long, Int>) {
         items = list
+        sessionCounts = counts
         notifyDataSetChanged()
     }
 }

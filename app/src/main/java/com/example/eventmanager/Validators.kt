@@ -12,6 +12,8 @@ object Validators {
     // to check field phone of user input
     private val PHONE_SEPARATORS = Regex("""[\s.\-()]""")
     private val PHONE_PATTERN = Regex("""\+?\d{10}""")
+    // to check field time (HH:mm, 24h) of session
+    private val TIME_PATTERN = Regex("""([01]\d|2[0-3]):[0-5]\d""")
 
     fun isValidDate(s: String): Boolean {
         if (!DATE_PATTERN.matches(s)) return false
@@ -23,4 +25,6 @@ object Validators {
 
     fun isValidPhone(s: String): Boolean =
         PHONE_PATTERN.matches(s.replace(PHONE_SEPARATORS, ""))
+
+    fun isValidTime(s: String): Boolean = TIME_PATTERN.matches(s)
 }

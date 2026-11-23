@@ -190,4 +190,69 @@ class EventDbHelper(context: Context) :
         }
         return map
     }
+    // ================= SEARCH =================
+
+    // Chuẩn bị chuỗi cho LIKE: "escape" ký tự \ % _ để chữ người dùng gõ được hiểu đúng nghĩa đen
+// (nếu không, gõ "%" sẽ khớp với mọi thứ). prefixOnly = true => khớp đầu chuỗi (abc%)
+    private fun likeArg(q: String, prefixOnly: Boolean = false): String {
+        val escaped = q.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        return if (prefixOnly) "$escaped%" else "%$escaped%"
+    }
+
+    // Tìm event theo tên HOẶC mô tả. Event có tên bắt đầu bằng chữ vừa gõ được xếp lên trên.
+    fun searchEvents(query: String): List<Event> {
+        val contains = likeArg(query)
+        val prefix = likeArg(query, prefixOnly = true)
+        val list = mutableListOf<Event>()
+        readableDatabase.rawQuery(
+            """
+        SELECT * FROM events
+        WHERE name LIKE ? ESCAPE '\' OR description LIKE ? ESCAPE '\'
+        ORDER BY CASE WHEN name LIKE ? ESCAPE '\' THEN 0 ELSE 1 END, id DESC
+        """.trimIndent(),
+            arrayOf(contains, contains, prefix)
+        ).use { c ->
+            while (c.moveToNext()) list.add(c.toEvent())
+        }
+        return list
+    }
+
+    // Tìm session trong MỘT event theo tên HOẶC mô tả
+    fun searchSessions(eventId: Long, query: String): List<Session> {
+        val like = likeArg(query)
+        val list = mutableListOf<Session>()
+        readableDatabase.query(
+            "sessions", null,
+            "event_id = ? AND (name LIKE ? ESCAPE '\\' OR description LIKE ? ESCAPE '\\')",
+            arrayOf(eventId.toString(), like, like),
+            null, null, "time ASC, id ASC"
+        ).use { c ->
+            while (c.moveToNext()) list.add(c.toSession())
+        }
+        return list
+    }
+
+    // Tìm nâng cao: theo ngày (khớp đúng) và/hoặc organiser (khớp chứa). Có cả hai thì phải thoả cả hai (AND).
+    fun advancedSearch(date: String, organiser: String): List<Event> {
+        val clauses = mutableListOf<String>()
+        val args = mutableListOf<String>()
+        if (date.isNotEmpty()) {
+            clauses += "date = ?"
+            args += date
+        }
+        if (organiser.isNotEmpty()) {
+            clauses += "organiser LIKE ? ESCAPE '\\'"
+            args += likeArg(organiser)
+        }
+        val list = mutableListOf<Event>()
+        readableDatabase.query(
+            "events", null,
+            if (clauses.isEmpty()) null else clauses.joinToString(" AND "),
+            if (args.isEmpty()) null else args.toTypedArray(),
+            null, null, "id DESC"
+        ).use { c ->
+            while (c.moveToNext()) list.add(c.toEvent())
+        }
+        return list
+    }
 }

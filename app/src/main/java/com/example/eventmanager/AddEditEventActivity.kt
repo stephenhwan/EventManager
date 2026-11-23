@@ -217,6 +217,7 @@ class AddEditEventActivity : AppCompatActivity() {
             db.update(event)
             Toast.makeText(this, R.string.toast_event_updated, Toast.LENGTH_SHORT).show()
         }
+        CloudSync.sync(this)
         finish()
     }
 
@@ -227,6 +228,7 @@ class AddEditEventActivity : AppCompatActivity() {
             .setPositiveButton(R.string.delete) { _, _ ->
                 db.delete(eventId)
                 Toast.makeText(this, R.string.toast_event_deleted, Toast.LENGTH_SHORT).show()
+                CloudSync.sync(this)
                 finish()
             }
             .setNegativeButton(R.string.cancel, null)
